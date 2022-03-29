@@ -7,13 +7,17 @@ import photo from "./assets/photo.jpeg";
 import { BsFilter } from "react-icons/bs";
 import { FaBell } from "react-icons/fa";
 
-function Navbar() {
+function Navbar({ sideBar, toggleSidebar }) {
   return (
     <div className="navbar flex">
       <div className="left flex">
-        <div className="icon-wrap flex">
-          <BsArrowBarLeft className="left-icon" />
-          <BsArrowBarRight className="right-icon" />
+        <div className="icon-wrap flex" onClick={toggleSidebar}>
+          <BsArrowBarLeft
+            className={`${sideBar ? "left-icon" : "nodisplay"}`}
+          />
+          <BsArrowBarRight
+            className={`${sideBar ? "nodisplay" : "right-icon"}`}
+          />
         </div>
         <img src={fieldlogo} alt="logo" className="logo" />
         <div className="nav-heading">Map Landing</div>
